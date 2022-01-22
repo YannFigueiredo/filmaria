@@ -17,7 +17,37 @@ img{
 }
 
 h1{
-  font-size: 1.2em;
+  font-size: 1.3em;
+}
+
+h2{
+  font-size: 1.1em;
+}
+
+.btn{
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: all 0.6s;
+  cursor: pointer;
+}
+
+.btn-cinza{
+  background-color: rgb(165, 163, 163);
+  color: black;
+}
+
+.btn-cinza:hover{
+  background-color: rgb(201, 194, 194);
+}
+
+.btn-vermelho{
+  background-color: rgb(179, 11, 11);
+  color: white;
+}
+
+.btn-vermelho:hover{
+  background-color: rgb(247, 54, 54);
 }
 
 /*Header*/

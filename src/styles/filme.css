@@ -1,0 +1,27 @@
+.filme-detalhes{
+    width: 700px;
+    margin: auto;
+}
+
+.container-capa-detalhe{
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.capa-filme-detalhe{
+    object-fit: cover;
+    object-position: top;
+}
+
+.container-btn{
+    border: 3px solid green;
+}
+
+#btn-salvar, #btn-trailer{
+    border-radius: 5px;
+}
+
+#btn-salvar{
+    margin-right: 10px;
+}

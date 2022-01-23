@@ -1,51 +1,50 @@
 import React, {useState, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import '../../styles/filme.css';
+import api from '../../services/api';
 
 function Filme(){
     const [filme, setFilme] = useState([]);
+    const {id} = useParams();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        function loadApi(){
-            let url = 'https://sujeitoprogramador.com/r-api/?api=filmes';
-
-            fetch(url).then((r) => r.json()).then((json) => {
-                setFilme(json);
-            })
+        async function loadApi(){
+            const response = await api.get('r-api/?api=filmes/'+id);
+            
+            setFilme(response.data);
+            setLoading(false);
         }
 
         loadApi();
-    }, []);
-    
-    const {id} = useParams();
-    var filmeSelecionado = 0;
+    }, [id]);
 
-    console.log(id);
-    console.log(filme[0]);
-    
-    /*filme.map((item, i) => {
-        if(parseInt(item.id) == parseInt(id))
-            filmeSelecionado = i;
-    });*/
+    console.group(filme);
 
-    console.log(filmeSelecionado);
-
-    return(
-        <section className="detalhes-filme">
-            <article className="filme-detalhes">
-                <h1 className="titulo-filme-detalhe">{filme.nome}</h1>
-                <div className="container-capa-detalhe">
-                    <img src={filme.foto} alt="Título" className="capa-filme-detalhe"/>
-                </div>
-                <h2 className="titulo-sinopse">Sinopse</h2>
-                <p className="txt-sinopse">{filme.sinopse}</p>
-                <div classsName="container-btn">
-                    <a id="btn-salvar" className="btn btn-cinza">Salvar</a>
-                    <a id="btn-trailer" className="btn btn-vermelho">Trailer</a>
-                </div>
-            </article>
-        </section>
-    );
+    if(loading === false){
+        return(
+            <section className="detalhes-filme">
+                <article className="filme-detalhes">
+                    <h1 className="titulo-filme-detalhe">{filme.nome}</h1>
+                    <div className="container-capa-detalhe">
+                        <img src={filme.foto} alt="Título" className="capa-filme-detalhe"/>
+                    </div>
+                    <h2 className="titulo-sinopse">Sinopse</h2>
+                    <p className="txt-sinopse">{filme.sinopse}</p>
+                    <div classsName="container-btn">
+                        <a id="btn-salvar" className="btn btn-cinza">Salvar</a>
+                        <Link to={`https://www.youtube.com/results?search_query=trailer+${filme.nome}`} id="btn-trailer" className="btn btn-vermelho">Trailer</Link>
+                    </div>
+                </article>
+            </section>
+        );
+    }else{
+        return(
+            <div className="txt-loading">
+                <h1>Carregando...</h1>
+            </div>
+        );
+    }
 }
 
 export default Filme;

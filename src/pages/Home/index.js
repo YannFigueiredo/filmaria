@@ -27,7 +27,7 @@ function Home(){
                         <div className="container-capa">
                             <img className="capa-filme" src={filme.foto} alt={filme.nome}/>
                         </div>
-                        <Link to="/filme" className="btn btn-vermelho">Acessar</Link>
+                        <Link to={`/filme/${filme.id}`} className="btn btn-vermelho">Acessar</Link>
                     </article>
                 ))
             }

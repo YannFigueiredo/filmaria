@@ -1,6 +1,7 @@
 .filme-detalhes{
     width: 700px;
     margin: auto;
+    padding-bottom: 20px;
 }
 
 .container-capa-detalhe{
@@ -24,4 +25,8 @@
 
 #btn-salvar{
     margin-right: 10px;
+}
+
+.txt-loading{
+    text-align: center;
 }

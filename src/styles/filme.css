@@ -15,10 +15,6 @@
     object-position: top;
 }
 
-.container-btn{
-    border: 3px solid green;
-}
-
 #btn-salvar, #btn-trailer{
     border-radius: 5px;
 }

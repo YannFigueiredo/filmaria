@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useParams, Link} from 'react-router-dom';
+import {useParams, Link, useNavigate} from 'react-router-dom';
 import '../../styles/filme.css';
 import api from '../../services/api';
 
@@ -7,11 +7,17 @@ function Filme(){
     const [filme, setFilme] = useState([]);
     const {id} = useParams();
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function loadApi(){
             const response = await api.get('r-api/?api=filmes/'+id);
             
+            if(response.data.length === 0){
+                navigate('/');
+                return;
+            }
+
             setFilme(response.data);
             setLoading(false);
         }
@@ -33,7 +39,7 @@ function Filme(){
                     <p className="txt-sinopse">{filme.sinopse}</p>
                     <div classsName="container-btn">
                         <a id="btn-salvar" className="btn btn-cinza">Salvar</a>
-                        <Link to={`https://www.youtube.com/results?search_query=trailer+${filme.nome}`} id="btn-trailer" className="btn btn-vermelho">Trailer</Link>
+                        <a target="blank" href={`https://www.youtube.com/results?search_query=Trailer ${filme.nome}`} id="btn-trailer" className="btn btn-vermelho">Trailer</a>
                     </div>
                 </article>
             </section>

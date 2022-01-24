@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
 import '../../styles/filme.css';
 import api from '../../services/api';
+import {toast} from 'react-toastify';
 
 function Filme(){
     const [filme, setFilme] = useState([]);
@@ -31,11 +32,12 @@ function Filme(){
         var filmesFavoritos = JSON.parse(listaFavoritos) || [];
 
         if(filmesFavoritos.some((filmeFavorito) => {return filmeFavorito.id === filme.id})){
-            alert('Esse filme já foi favoritado!');
+           toast.info('Esse filme já foi favoritado!');
         }else{
             filmesFavoritos.push(filme);
             localStorage.setItem('filmes', JSON.stringify(filmesFavoritos));
-            alert('Filme favoritado!');
+
+            toast.success('Filme favoritado!');
         }
     }
 

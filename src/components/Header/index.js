@@ -4,7 +4,7 @@ function Header(){
     return(
         <header className="header-principal">
             <Link className="titulo-site" to='/'>Filmaria</Link>
-            <a className="btn-favoritos">Favoritos</a>
+            <Link to="/favoritos" className="btn-favoritos">Favoritos</Link>
         </header>
     );
 }

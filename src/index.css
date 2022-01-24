@@ -17,11 +17,11 @@ img{
 }
 
 h1{
-  font-size: 1.3em;
+  font-size: 1.6em;
 }
 
 h2{
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 
 h3{
@@ -66,8 +66,10 @@ h3{
 
 .titulo-site{
   color: white;
-  font-size: 1.3em;
+  font-size: 1.5em;
   text-decoration: none;
+  font-weight: bold;
+  text-shadow: -2px 2px 0 black;
 }
 
 .btn-favoritos{

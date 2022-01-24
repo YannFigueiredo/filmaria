@@ -13,3 +13,10 @@
 .favorito .btn-excluir{
     margin-left: 5px;
 }
+
+.msg-semfilmes{
+    font-size: 1.3em;
+    color: red;
+    text-shadow: -1px 1px 0 black;
+    text-align: center;
+}

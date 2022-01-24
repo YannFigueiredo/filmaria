@@ -10,10 +10,24 @@ export default function Favoritos(){
 
         setFavoritos(JSON.parse(listaFavoritos) || []);
     }, []);
+
+    function excluirFavorito(id){
+        if(window.confirm("Deseja realmente excluir este filme?")){
+            const filtroFavoritos = favoritos.filter((item) => {
+                return(item.id != id);
+            });
+    
+            setFavoritos(filtroFavoritos);
+            localStorage.setItem('filmes', JSON.stringify(filtroFavoritos));
+    
+            alert("Filme removido!");
+        }
+    }
     
     return(    
         <section>
             <h1 className="titulo-pagina">Meus Filmes</h1>
+            {favoritos.length === 0 && <p className="msg-semfilmes">Você não possui filmes salvos.</p>}
             {
             favoritos.map(favorito => (
                 <div key={favorito.id} className="favorito">
@@ -22,11 +36,7 @@ export default function Favoritos(){
                     </div>
                     <div>
                         <Link to={`/filme/${favorito.id}`} className="btn btn-cinza btn-detalhes">Detalhes</Link>
-                        <a className="btn btn-vermelho btn-excluir" onClick={
-                            () => {
-                                localStorage.removeItem('filmes', favorito);
-                            }
-                        }>Excluir</a>
+                        <a className="btn btn-vermelho btn-excluir" onClick={() => {excluirFavorito(favorito.id)}}>Excluir</a>
                     </div>
                 </div>
             ))

@@ -4,7 +4,7 @@
 
 .favorito{
     display: flex;
-    width: 600px;
+    width: 80%;
     margin: auto;
     align-items: center;
     justify-content: space-between;

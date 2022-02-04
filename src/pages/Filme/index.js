@@ -43,7 +43,7 @@ function Filme(){
 
     if(loading === false){
         return(
-            <section className="detalhes-filme">
+            <section className="detalhes-filme container">
                 <article className="filme-detalhes">
                     <h1 className="titulo-filme-detalhe">{filme.nome}</h1>
                     <div className="container-capa-detalhe">

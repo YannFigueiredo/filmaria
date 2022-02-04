@@ -1,5 +1,5 @@
 .filme-detalhes{
-    width: 700px;
+    width: 80%;
     margin: auto;
     padding-bottom: 20px;
 }
@@ -24,4 +24,10 @@
 
 .txt-loading{
     text-align: center;
+}
+
+@media screen and (min-width: 1200px) {
+    .filme-detalhes{
+        width: 90%;
+    }
 }

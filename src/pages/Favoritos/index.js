@@ -26,7 +26,7 @@ export default function Favoritos(){
     }
     
     return(    
-        <section>
+        <section className="container">
             <h1 className="titulo-pagina">Meus Filmes</h1>
             {favoritos.length === 0 && <p className="msg-semfilmes">Você não possui filmes salvos.</p>}
             {

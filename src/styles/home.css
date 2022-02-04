@@ -1,14 +1,16 @@
 .cards-filmes{
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-filme{
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    width: 720px;
     align-items: center;
-    margin: auto;
-    margin-top: 30px;
+    width: 80%;
 }
 
 .container-capa{
@@ -18,7 +20,7 @@
 
 .capa-filme{
     object-fit: cover;
-    object-position: top;
+    object-position: top center;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -26,4 +28,22 @@
 
 .card-filme .btn{
     width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .card-filme{
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .card-filme{
+        width: 55%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .card-filme{
+        width: 720px;
+    }
 }
